@@ -8,8 +8,9 @@ using std::string;
 class Span
 {
 	private:
-		unsigned int	N;
 		std::list<int>	lst;
+		unsigned int	N;
+		unsigned int	av;
 
 	public:
 		Span();
