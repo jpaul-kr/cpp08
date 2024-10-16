@@ -20,6 +20,8 @@ class Span
 
 		Span&	operator=(const Span& cpy);
 		void	addNumber(int num);
+		void	addMany(int num, int amount);
+		void	print_list();
 		int	shortestSpan();
 		int	longestSpan();
 };

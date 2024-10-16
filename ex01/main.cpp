@@ -1,5 +1,18 @@
 #include "Span.hpp"
 
+
+void	test3(Span& sp)
+{
+	sp = Span(10);
+
+	sp.addNumber(5);
+	sp.addNumber(9);
+	sp.addNumber(56);
+	sp.addNumber(78);
+	sp.addMany(25, 20);
+	//sp.addMany(7, -10);
+}
+
 void	test2(Span& sp)
 {
 	sp = Span(100000);
@@ -25,14 +38,16 @@ int	main()
 
 	try
 	{
-		test1(sp);
+		//test1(sp);
 		//test2(sp);
+		test3(sp);
 	}
 	catch (std::out_of_range& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-
+	sp.print_list();
+	std::cout << std::endl;
 	std::cout << "small span: " << sp.shortestSpan() << std::endl;
 	std::cout << "large span: " << sp.longestSpan() << std::endl;
 }

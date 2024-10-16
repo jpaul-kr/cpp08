@@ -29,16 +29,25 @@ void	Span::addNumber(int num)
 	this->av--;
 }
 
+void	Span::addMany(int start, int end)
+{
+	int iter = start > end ? -1 : 1;
+	std::list<int>::const_iterator	it;
+
+	for (int i = start; i != end; i += iter)
+		addNumber(i);
+}
+
 int	Span::shortestSpan()
 {
 	std::list<int>			sort(this->lst);
-	sort.sort();
-
 	std::list<int>::const_iterator	it;
-	std::list<int>::const_iterator	ite = sort.end();
+	std::list<int>::const_iterator	ite;
 	int				small;
 	int				prev;
 
+	sort.sort();
+	ite = sort.end();
 	for (it = sort.begin(); it != ite; it++)
 	{
 		if (it == sort.begin())
@@ -55,17 +64,19 @@ int	Span::shortestSpan()
 
 int	Span::longestSpan()
 {
+	std::list<int>	sort(this->lst);
+
+	sort.sort();
+	return sort.back() - *(sort.begin());
+}
+
+void	Span::print_list()
+{
 	std::list<int>::const_iterator	it;
 	std::list<int>::const_iterator	ite = this->lst.end();
-	int	small = *(this->lst.begin());
-	int	large = *(this->lst.begin());
 
+	std::cout << "list: ";
 	for (it = this->lst.begin(); it != ite; it++)
-	{
-		if (*it < small)
-			small = *it;
-		if (*it > large)
-			large = *it;
-	}
-	return large - small;
+		std::cout << *it << " ";
+	std::cout << std::endl;
 }
