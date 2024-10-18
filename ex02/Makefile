@@ -1,4 +1,4 @@
-NAME = span
+NAME = mutantstack
 
 CC = c++ -std=c++98
 RM = rm -rf
