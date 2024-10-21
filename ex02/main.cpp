@@ -1,6 +1,33 @@
 #include "MutantStack.hpp"
 #include <list>
 
+void	test()
+{
+	MutantStack<float>			mstack;
+	std::list<float>			lst;
+
+	for (float i = 1; i <= 10; i++)
+	{
+		mstack.push(i / 2);
+		lst.push_back(i / 2);
+	}
+
+	MutantStack<float>::const_iterator	stack_it = mstack.begin();
+	std::list<float>::const_iterator	list_it = lst.begin();
+
+	std::cout << "\tmutant stack:" << std::endl;
+	while (stack_it != mstack.end())
+		std::cout << *(stack_it++) << " ";
+	std::cout << std::endl;
+
+	std::cout << "\tlist:" << std::endl;
+	while (list_it != lst.end())
+		std::cout << *(list_it++) << " ";
+	std::cout << std::endl;
+
+	std::cout << mstack.top() << " " << lst.back() << std::endl;
+}
+
 int	main()
 {
 	MutantStack<int> mstack;
@@ -50,5 +77,5 @@ int	main()
 		std::cout << *it << std::endl;
 		++it;
 	}*/
-
+	//test();
 }
