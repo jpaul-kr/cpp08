@@ -2,7 +2,7 @@
 
 int	main()
 {
-	int	find = 2;
+	int	find = 1;
 
 	std::list<int>		container;
 	//std::vector<int>	container;

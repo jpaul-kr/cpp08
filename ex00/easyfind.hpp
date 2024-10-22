@@ -11,18 +11,12 @@ using std::string;
 template <typename T>
 void	easyfind(T cont, int num)
 {
-	typename T::const_iterator	it;
-	typename T::const_iterator	ite = cont.end();
+	typename T::const_iterator	it = std::find(cont.begin(), cont.end(), num);
 
-	for (it = cont.begin(); it != ite ; it++)
-	{
-		if (*it == num)
-		{
-			std::cout << num << " has been found!" << std::endl;
-			return ;
-		}
-	}
-	throw std::logic_error("\tnumber not found");
+	if (it == cont.end())
+		throw std::logic_error("\tnumber not found");
+	else
+		std::cout << "number " << num << " has been found!" << std::endl;
 }
 
 #endif

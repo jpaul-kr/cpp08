@@ -29,15 +29,6 @@ void	Span::addNumber(int num)
 	this->av--;
 }
 
-void	Span::addMany(int start, int end)
-{
-	int iter = start > end ? -1 : 1;
-	std::list<int>::const_iterator	it;
-
-	for (int i = start; i != end; i += iter)
-		addNumber(i);
-}
-
 int	Span::shortestSpan()
 {
 	std::list<int>			sort(this->lst);
@@ -52,10 +43,10 @@ int	Span::shortestSpan()
 	{
 		if (it == sort.begin())
 		{
-			prev = *(it++);
-			small = *(it--) - prev;
+			prev = *it;
+			small = 0;
 		}
-		else if (*it - prev < small)
+		else if (*it - prev < small || it == ++sort.begin())
 			small = *it - prev;
 		prev = *it;
 	}

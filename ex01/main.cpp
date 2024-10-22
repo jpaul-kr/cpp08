@@ -1,16 +1,23 @@
 #include "Span.hpp"
+#include <vector>
 
 
 void	test3(Span& sp)
 {
 	sp = Span(10);
+	std::vector<int>	vec;
 
-	sp.addNumber(5);
-	sp.addNumber(9);
-	sp.addNumber(56);
-	sp.addNumber(78);
-	sp.addMany(25, 20);
-	//sp.addMany(7, -10);
+	vec.push_back(-56);
+	//vec.push_back(-7);
+	/*vec.push_back(0);
+	vec.push_back(90);
+	vec.push_back(8);
+	vec.push_back(-3);
+	vec.push_back(23);
+	vec.push_back(6);*/
+	//vec.push_back(89);
+
+	sp.addMany(vec);
 }
 
 void	test2(Span& sp)
@@ -38,9 +45,9 @@ int	main()
 
 	try
 	{
-		//test1(sp);
+		test1(sp);
 		//test2(sp);
-		test3(sp);
+		//test3(sp);
 	}
 	catch (std::out_of_range& e)
 	{
